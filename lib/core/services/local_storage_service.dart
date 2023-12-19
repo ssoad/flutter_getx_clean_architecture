@@ -50,8 +50,7 @@ class LocalStorageService extends GetxService {
 
   set user(User? value) {
     if (value != null) {
-      _getStorage?.write(
-          _Key.user.toString(), json.encode(value.toJson()));
+      _getStorage?.write(_Key.user.toString(), json.encode(value.toJson()));
     } else {
       _getStorage?.remove(_Key.user.toString());
     }
@@ -81,6 +80,14 @@ class LocalStorageService extends GetxService {
     } else {
       _getStorage?.remove(_Key.locale.toString());
     }
+  }
+
+  Future<void> saveData(String key, String value) async {
+    await _getStorage?.write(key, value);
+  }
+
+  Future<dynamic> getData(String key) async {
+    return await _getStorage?.read(key);
   }
 
   void clearAll() {
