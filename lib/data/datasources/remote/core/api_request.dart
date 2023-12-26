@@ -1,7 +1,7 @@
 
 import '../../../../core/extension/extension.dart';
 
-abstract class APIRequestRepresentable {
+abstract class IHTTPRequest {
   String get url;
   String get endpoint;
   String get path;

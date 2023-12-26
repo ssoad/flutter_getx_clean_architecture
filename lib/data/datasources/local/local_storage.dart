@@ -3,15 +3,17 @@
 import '../../../core/services/local_storage_service.dart';
 
 class LocalStorage {
-  final LocalStorageService _localStorageService;
+  final LocalStorageService localStorageService;
 
-  LocalStorage(this._localStorageService);
+  LocalStorage({required this.localStorageService});
+
+  
 
   Future<void> saveData(String key, dynamic data) async {
-    await _localStorageService.saveData(key, data);
+    await localStorageService.saveData(key, data);
   }
 
   Future<dynamic> getData(String key) async {
-    return await _localStorageService.getData(key);
+    return await localStorageService.getData(key);
   }
 }

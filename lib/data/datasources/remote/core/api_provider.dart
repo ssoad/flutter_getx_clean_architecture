@@ -7,14 +7,14 @@ import 'package:get/get.dart';
 import '../../../../core/exception/app_exception.dart';
 import 'api_request.dart';
 
-class APIProvider {
+class HTTPProvider {
   static const requestTimeOut = Duration(seconds: 100);
   final _client = GetConnect(timeout: requestTimeOut);
 
-  static final _singleton = APIProvider();
-  static APIProvider get instance => _singleton;
+  static final _singleton = HTTPProvider();
+  static HTTPProvider get instance => _singleton;
 
-  Future request(APIRequestRepresentable request) async {
+  Future request(IHTTPRequest request) async {
     print(request.body);
     try {
       final response = await _client.request(

@@ -25,7 +25,7 @@ enum AuthType {
 
 enum SocialProvider { google, facebook, twitter, apple }
 
-class AuthAPI implements APIRequestRepresentable {
+class AuthAPI implements IHTTPRequest {
   final AuthType type;
   SocialProvider? socialProvider;
   String? id;
@@ -261,7 +261,7 @@ class AuthAPI implements APIRequestRepresentable {
 
   @override
   Future request() {
-    return APIProvider.instance.request(this);
+    return HTTPProvider.instance.request(this);
   }
 
   @override
